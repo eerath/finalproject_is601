@@ -1,15 +1,16 @@
 # app/auth/redis.py
-import aioredis
+from redis.asyncio import Redis
 from app.core.config import get_settings
 
 settings = get_settings()
 
-async def get_redis():
-    if not hasattr(get_redis, "redis"):
-        get_redis.redis = await aioredis.from_url(
-            settings.REDIS_URL or "redis://localhost"
-        )
-    return get_redis.redis
+redis_client: Redis | None = None
+
+async def get_redis() -> Redis:
+    global redis_client
+    if redis_client is None:
+        redis_client = Redis.from_url(settings.REDIS_URL or "redis://localhost")
+    return redis_client
 
 async def add_to_blacklist(jti: str, exp: int):
     """Add a token's JTI to the blacklist"""
