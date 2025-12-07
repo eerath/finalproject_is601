@@ -31,6 +31,9 @@ from sqlalchemy.orm import Session  # SQLAlchemy database session
 
 import uvicorn  # ASGI server for running FastAPI apps
 
+# Import routes
+from app.routers import users
+
 # Application imports
 from app.auth.dependencies import get_current_active_user  # Authentication dependency
 from app.models.calculation import Calculation  # Database model for calculations
@@ -69,6 +72,9 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan  # Pass our lifespan context manager
 )
+
+# Register routes
+app.include_router(users.router)
 
 # ------------------------------------------------------------------------------
 # Static Files and Templates Configuration
