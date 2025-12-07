@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.schemas.user import UserUpdate, UserResponse
-from app.operations import update_user
+from app.operations.user import update_user
 from app.auth.dependencies import get_current_user  # you should have something like this
 from app.models.user import User
 
