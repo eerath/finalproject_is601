@@ -61,6 +61,15 @@
         <!-- Right side: user greeting & logout -->
         <div class="flex items-center space-x-4">
           <span id="layoutUserWelcome" class="text-sm font-medium text-white hidden md:block"></span>
+
+          <!-- Change Password link -->
+             <nav>
+              <ul>
+                <li><a href="{{ url_for('update_my_password') }}" class="text-white text-sm hover:underline">Change Password</a></li>
+              </ul>
+            </nav>
+          
+          <!-- Logout Button -->  
           <button
             id="layoutLogoutBtn"
             class="px-4 py-2 rounded-md text-white bg-red-600 hover:bg-red-700 transition-colors duration-200 
