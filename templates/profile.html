@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Profile</title>
+    </head>
+    <body>
+        <h1>Edit Profile</h1>
+        <form id="profileForm">
+            <label>First Name: <input name="first_name" id="first_name"></label>
+            <br>
+            <label>Last Name: <input name="last_name" id="last_name"></label>
+            <br>
+            <label>Email: <input name="email" id="email"></label>
+            <br>
+            <label>Username: <input name="username" id="username"></label>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+
+        <script> // Check user has stored access token
+            var token = localStorage.getItem("access_token");
+
+            document.getElementById('profileForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                var payload = {
+                    first_name: document.getElementById('first_name').value || undefined,
+                    last_name: document.getElementById('last_name').value || undefined,
+                    email: document.getElementById('email').value || undefined,
+                    username: document.getElementById('username').value || undefined
+                };
+
+            // Remove undefined values so backend only receives user inputs
+            Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k]);
+
+            var resp = await fetch('/users/me', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (resp.ok) {
+                alert('Profile updated');
+            } else {
+                var text = await resp.text();
+                alert('Error updating profile: ' + text);
+            }
+            });
+        </script>
+    </body>
+</html>
