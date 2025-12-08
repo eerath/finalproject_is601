@@ -167,6 +167,15 @@ def edit_calculation_page(request: Request, calc_id: str):
     """
     return templates.TemplateResponse("edit_calculation.html", {"request": request, "calc_id": calc_id})
 
+# Route for updating profile
+@app.get("/profile", response_class=HTMLResponse, tags=["web"])
+def profile_page(request: Request):
+    return templates.TemplateResponse("profile.html", {"request": request})
+
+# Route for updating password
+@app.get("/password", response_class=HTMLResponse, tags=["web"])
+def password_page(request: Request):
+    return templates.TemplateResponse("password.html", {"request": request})
 
 # ------------------------------------------------------------------------------
 # Health Endpoint
