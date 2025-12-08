@@ -63,7 +63,7 @@
 # of a complex program, and engage with new concepts like routing,
 # database management, and integration testing. 
 #
-# If I had to choose two things as my big takeaways from this course,
+# If I had to choose three things as my big takeaways from this course,
 # it would be this:
 # 1. There are numerous amounts of tools out there already created
 # to help you program more efficiently, to add new features to your 
@@ -74,6 +74,11 @@
 # errors. Code will rarely work on the "first try", so being able to use
 # testing, read error codes (or pytest failures!), and have patience 
 # are invaluable skills.
+# 3. It is critical to stay organized when developing an application. 
+# Keep track of git logs, implement testing for new additions right away,
+# and detail a changelog of everything you worked on/are working on/plan 
+# to work on next. Applications are made of many files and layers, so 
+# staying organized with clearly written code and comments is key!
 #
 # Thank you for everything, Professor!
 #
