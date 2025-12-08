@@ -25,7 +25,7 @@
  using "docker compose up --build" and visit 
  http://127.0.0.1:8000 in your browser.
 
-# ----- ADDED FEATURE -----
+## ----- ADDED FEATURE -----
 
  For this project, I decided to add "Change Password" as
  the new feature. You can view the navigation for this feature 
